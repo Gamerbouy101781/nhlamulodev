@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nhlamulo | A Production by Nhlamulo Baloyi</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-github-username.github.io/your-repo-name/"> 
+    <meta property="og:title" content="nhlamulo | 2026 Cinematic Experience">
+    <meta property="og:description" content="This message found you for a reason. Click to reveal your personal 2026 verse. ✨">
+    <meta property="og:image" content="https://your-github-username.github.io/your-repo-name/preview-card.jpg"> 
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="grain"></div>
+    <audio id="bg-music" loop preload="auto"></audio>
+
+    <div class="music-controls">
+        <button id="music-toggle" class="control-btn" aria-label="Toggle Music">
+            <svg id="icon-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+            <svg id="icon-mute" class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+        </button>
+    </div>
+
+    <main id="app">
+        
+        <section id="scene-splash" class="scene active">
+            <div class="credits-wrap">
+                <span class="small-caps">A Digital Production<br<p></p> By</span>
+                <h2 class="creator-name">Nhlamulo Baloyi</h2>
+                <h3 class="nickname">aka <span class="accent-text">itzurbouylilnb</span></h3>
+                <div class="loader-line-container">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene-intro" class="scene">
+            <div class="content-wrap">
+                <p class="intro-text" id="intro-1">This message wasn’t random.</p>
+                <p class="intro-text" id="intro-2">It was meant for you.</p>
+            </div>
+        </section>
+
+        <section id="scene-input" class="scene">
+            <div class="input-wrap">
+                <input type="text" id="name-input" placeholder="Type your name" autocomplete="off" spellcheck="false">
+                <div class="input-glow"></div>
+                <p class="input-hint">Press Enter to Begin</p>
+            </div>
+        </section>
+
+        <section id="scene-reveal" class="scene">
+            <div id="capture-area" style="padding: 40px; background: #050505; border-radius: 15px;">
+                <div id="reveal-name-wrap">
+                    <h1 id="display-name"></h1>
+                </div>
+                <div id="message-container"></div>
+                <p class="mini-footer" style="position: static; margin-top: 20px; opacity: 0.3;">itzurbouylilnb | 2026</p>
+            </div>
+        </section>
+
+        <section id="scene-final" class="scene">
+            <div class="final-wrap">
+                <h2 class="cinematic-title">Welcome to 2026.</h2>
+                <p class="sub-text">This is your moment.</p>
+                <div class="actions">
+                    <button class="btn-primary" id="download-btn">Save as Image</button>
+                    <button class="btn-secondary" id="share-btn">Share Link</button>
+                    <button class="btn-secondary" style="background: none; border: none; opacity: 0.5;" onclick="window.location.reload()">Replay</button>
+                </div>
+                <footer class="mini-footer">
+                    Designed & Developed by Nhlamulo Baloyi
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
