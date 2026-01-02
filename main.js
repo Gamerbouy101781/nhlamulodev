@@ -38,6 +38,7 @@ const CONFIG = {
         "dakaro": "music/Favourite-song.mp3",
         "mpumelelo": "music/is-it-a-crime.mp3",
         "mpumi": "music/is-it-a-crime.mp3",
+        "mpumiey": "music/is-it-a-crime.mp3",
         "kea": "music/shela-remix.mp3",
         "itumelang": "music/O-mohao.mp3",
         "jo-ann": "music/joy_is_coming.mp3",
