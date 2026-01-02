@@ -6,15 +6,43 @@
 const CONFIG = {
     year: "2026",
     creator: { name: "Nhlamulo Baloyi", nickname: "itzurbouylilnb" },
-    defaultMusic: "music/default.mp3",
+    defaultMusic: "music/joy_is_coming.mp3",
 
     // --- FAVORITE SONGS MAPPING ---
     // Add names here in LOWERCASE. If a name isn't here, it plays defaultMusic.
     userMusic: {
-        "rirhandzu": "music/U-tava-na-hina-Yehovha.mp3",
-        "khazamula": "music/U-tava-na-hina-Yehovha.mp3",
-        "mhluri": "music/fave2.mp3",
-        "minkhenso": "music/fave3.mp3",
+        "nhlamulo": "music/shela-remix.mp3",
+        "rirhandzu": "music/U-tava-nahinaa.mp3",
+        "khazamula": "music/holy-forever.mp3",
+        "mhluri": "music/when-lelo-was-born.mp3",
+        "minkhenso": "music/shela-remix.mp3",
+        "tsakani": "music/Hileka-xigangu-xame.mp3",
+        "ringo": "music/Aerosmith.mp3",
+        "rifumo": "music/M83.mp3",
+        "ednah": "music/M83.mp3",
+        "mission": "music/hotfurz.mp3",
+        "ntlhari": "music/hotfurz.mp3",
+        "muxe": "music/Dikgoro.mp3",
+        "moshe": "music/Dikgoro.mp3",
+        "marcus": "music/in-da-club.mp3",
+        "nyiko": "music/in-da-club.mp3",
+        "entle": "music/thandaza.mp3",
+        "emoji": "music/thandaza.mp3",
+        "nontle": "music/thandaza.mp3",
+        "risuna": "music/pray-4-love.mp3",
+        "avumile": "music/Rako-laka.mp3",
+        "samkelisiwe": "music/Best-Part.mp3",
+        "nontobeko": "music/Head-up.mp3",
+        "ndalo": "music/Head-up.mp3",
+        "asibonge": "music/Favourite-song.mp3",
+        "dakaro": "music/Favourite-song.mp3",
+        "mpumelelo": "music/is-it-a-crime.mp3",
+        "mpumiey": "music/is-it-a-crime.mp3",
+        "kea": "music/shela-remix.mp3",
+        "itumelang": "music/O-mohao.mp3",
+        "jo-ann": "music/joy_is_coming.mp3",
+        "jojow": "music/joy_is_coming.mp3",
+        "tara": "music/mood-swings.mp3",
         "itzurbouylilnb": "music/special.mp3"
     },
 
@@ -540,16 +568,53 @@ function showFinalScene() {
 
 downloadBtn.addEventListener('click', () => {
     const verseArea = document.querySelector('.verse-wrap');
-    if(!verseArea) return;
-    const originalStyle = verseArea.style.cssText;
-    verseArea.style.cssText = "padding: 60px 40px; background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 1; visibility: visible;";
-    verseArea.querySelectorAll('.verse-line').forEach(l => { l.style.opacity = "1"; l.style.transform = "none"; });
+    if (!verseArea) return;
 
-    html2canvas(verseArea, { backgroundColor: "#050505", scale: 3 }).then(canvas => {
+    const originalStyle = verseArea.style.cssText;
+
+    // Force container styles
+    verseArea.style.cssText = `
+        padding: 80px 60px;
+        background: #050505;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        opacity: 1;
+        visibility: visible;
+    `;
+
+    // Force verse lines visible
+    verseArea.querySelectorAll('.verse-line').forEach(el => {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+        el.style.filter = "none";
+    });
+
+    // ✅ FORCE reference visible (THIS IS THE FIX)
+    verseArea.querySelectorAll('.verse-ref, .verse-reference, small').forEach(el => {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+        el.style.filter = "none";
+        el.style.marginTop = "40px";
+        el.style.fontSize = "38px";
+        el.style.fontStyle = "italic";
+        el.style.color = "#cfcfcf";
+        el.style.display = "block";
+    });
+
+    html2canvas(verseArea, {
+        backgroundColor: "#050505",
+        scale: 3,
+        useCORS: true
+    }).then(canvas => {
         const link = document.createElement('a');
-        link.download = `2026-Verse.png`;
-        link.href = canvas.toDataURL();
+        link.download = '2026-Verse.png';
+        link.href = canvas.toDataURL('image/png');
         link.click();
+
+        // Restore original styles
         verseArea.style.cssText = originalStyle;
     });
 });
